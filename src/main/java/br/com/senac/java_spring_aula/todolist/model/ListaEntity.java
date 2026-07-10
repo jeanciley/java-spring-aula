@@ -24,6 +24,7 @@ public class ListaEntity {
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private ListaStatus status;
 
 }
