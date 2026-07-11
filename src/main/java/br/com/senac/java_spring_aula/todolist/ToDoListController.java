@@ -73,7 +73,7 @@ public class ToDoListController {
         ListaEntity listaEntity = optionalLista.get();
 
         if(!listaEntity.getStatus().equals(ListaStatus.TO_DO)) {
-            throw new IllegalArgumentException("Só é possível atualizar tarefas que estão com o status \"TO_DO\"");
+            throw new IllegalArgumentException("Só é possível atualizar tarefas que estão com o status "+"TO_DO");
         }
 
         listaEntity.setStatus(ListaStatus.DONE);
