@@ -1,6 +1,6 @@
 package br.com.senac.java_spring_aula.produto;
 
-import br.com.senac.java_spring_aula.livraria.model.ProdutoStatus;
+import br.com.senac.java_spring_aula.produto.model.ProdutoStatus;
 import br.com.senac.java_spring_aula.produto.model.ProdutoEntity;
 import br.com.senac.java_spring_aula.produto.model.ProdutoPostDTO;
 import br.com.senac.java_spring_aula.produto.repository.ProdutoRepository;

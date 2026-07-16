@@ -1,6 +1,5 @@
 package br.com.senac.java_spring_aula.produto.model;
 
-import br.com.senac.java_spring_aula.livraria.model.ProdutoStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
