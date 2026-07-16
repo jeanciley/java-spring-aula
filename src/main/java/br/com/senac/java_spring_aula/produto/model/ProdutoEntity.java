@@ -1,7 +1,6 @@
 package br.com.senac.java_spring_aula.produto.model;
 
 import br.com.senac.java_spring_aula.livraria.model.ProdutoStatus;
-import br.com.senac.java_spring_aula.todolist.model.ListaStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
