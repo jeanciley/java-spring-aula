@@ -1,15 +1,15 @@
-package br.com.senac.java_spring_aula.cliente;
+package br.com.senac.java_spring_aula.cliente.controller;
 
 import br.com.senac.java_spring_aula.cliente.model.ClienteEntity;
 import br.com.senac.java_spring_aula.cliente.model.ClientePostDTO;
 import br.com.senac.java_spring_aula.cliente.repository.ClienteRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -18,27 +18,33 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/clientes")
+@RequiredArgsConstructor
 public class ClienteController {
 
     private final ClienteRepository repository;
-
-    public ClienteController(ClienteRepository repository) {
-        this.repository = repository;
-    }
 
     @PostMapping
     @Transactional
     public ResponseEntity<?> cadastrar(@Valid @RequestBody ClientePostDTO dto) {
 
-        Optional<ClienteEntity> clienteExistente = repository.findByEmail(dto.email());
+        Optional<ClienteEntity> emailEnviado = repository.buscarPorEmail(dto.email());
+        Optional<ClienteEntity> cpfEnviado = repository.findByCpf(dto.cpf());
 
-        if (clienteExistente.isPresent()) {
+        if (emailEnviado.isPresent()) {
 
             Map<String, String> erro = new HashMap<>();
             erro.put("erro", "E-mail já cadastrado");
 
             return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
+        } else  if (cpfEnviado.isPresent()) {
+
+            Map<String, String> erro = new HashMap<>();
+            erro.put("erro", "CPF já cadastrado!");
+
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
         }
+
+
 
         ClienteEntity cliente = new ClienteEntity();
 

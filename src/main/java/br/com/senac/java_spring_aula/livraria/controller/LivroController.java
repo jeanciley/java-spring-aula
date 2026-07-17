@@ -1,4 +1,4 @@
-package br.com.senac.java_spring_aula.livraria;
+package br.com.senac.java_spring_aula.livraria.controller;
 
 import br.com.senac.java_spring_aula.livraria.model.LivroEntity;
 import br.com.senac.java_spring_aula.livraria.model.LivroPostDTO;

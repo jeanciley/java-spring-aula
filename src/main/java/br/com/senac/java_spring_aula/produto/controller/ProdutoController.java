@@ -1,4 +1,4 @@
-package br.com.senac.java_spring_aula.produto;
+package br.com.senac.java_spring_aula.produto.controller;
 
 import br.com.senac.java_spring_aula.produto.model.ProdutoStatus;
 import br.com.senac.java_spring_aula.produto.model.ProdutoEntity;
